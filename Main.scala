@@ -22,54 +22,20 @@ object Main {
 			vocabIndex+=1
 		}
 		val trainingFeatureVectors = Support.makeFeatureVector(trainingDataSet,vocabList)
-		printPerceptronData(false,true,trainingFeatureVectors,validationDataSet,vocabList,1000)
+		val weights = Pegasos.pegasos_svm_train(trainingFeatureVectors,.00001)
+		val validationTrainingVectors = Support.makeFeatureVector(validationDataSet,vocabList)
+		val testError = Pegasos.pegasos_svm_test(validationTrainingVectors,weights)
+		println(f"Test Error: $testError%1.3f")
+
+		//printPerceptronData(false,true,trainingFeatureVectors,validationDataSet,vocabList,1000)
 
 		val algTime = System.currentTimeMillis
 
 		println("\nTotal Learning Time " + (algTime-start)/1000.0 + " seconds")
 		
-		for(n <- N) { /* prints out results for N=100,200,400,800,2000,4000 */
-			val nFeatureVectors = trainingFeatureVectors.splitAt(n)._1
-			printPerceptronData(false,false,nFeatureVectors,validationDataSet,vocabList,1000)
-			printPerceptronData(true,false,nFeatureVectors,validationDataSet,vocabList,1000)
-		}
-		
-		println("===============================\n\nRUN WITH TEST DATA AND FULL TRAINING SET")
-		val newVocabTally = Support.buildVocabulary(emailList)
-		var newVocabList = new Array[String](newVocabTally.size)
-		var newVocabIndex = 0
-		for(word <- newVocabTally) { /*converts to simple array for faster iteration*/
-			newVocabList(newVocabIndex) = word._1
-			newVocabIndex+=1
-		}
-		val finalFeatureVectors = Support.makeFeatureVector(emailList,newVocabList)
-		val testData = getDataFromFile("data/spam_test.txt")
-		val testDataSet = Support.getEmailList(testData)
-		printPerceptronData(true,false,finalFeatureVectors,testDataSet,newVocabList,15)
-
-		
 		val end = System.currentTimeMillis
 
 		println("Total Running Time of all Tests: " + (end-start)/1000.0 + " seconds")
-	}
-
-	def printPerceptronData(averaged: Boolean,printWeights: Boolean,featureVectors: List[(Array[Int],Int)],
-		validationDataSet: List[(Int,String)], vocabList: Array[String],iterMax: Int) = {
-
-		val trainingData = if (averaged) { Perceptron.averagePerceptronTrain(featureVectors,iterMax) }
-		else { Perceptron.perceptronTrain(featureVectors,iterMax) }
-		val weights = trainingData._1
-		val k = trainingData._2
-		val iter = trainingData._3
-		val algType = if(averaged) "Average Perceptron Train" else "Regular Perceptron Train"
-		println("\n" + algType + " of with size N of " + featureVectors.size + "\n")
-		println("Total Training Errors:" + k + ", Iterations:" + iter)
-		val validationTrainingVectors = Support.makeFeatureVector(validationDataSet,vocabList)
-		val testError = Perceptron.perceptronTest(validationTrainingVectors,weights)
-		println(f"Test Error: $testError%1.3f")
-		if (printWeights){
-			printHeaviestWeights(weights,vocabList)
-		}
 	}
 
 	def getDataFromFile(file: String) : String = {
