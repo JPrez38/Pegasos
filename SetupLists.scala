@@ -1,4 +1,4 @@
-package perceptron
+package pegasos
 
 import math._
 import scala.collection.mutable.Map

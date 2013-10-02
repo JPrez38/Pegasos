@@ -1,4 +1,4 @@
-package perceptron
+package pegasos
 
 import math._
 import scala.collection.mutable.Map
@@ -9,7 +9,7 @@ object Main {
 		val start = System.currentTimeMillis
 		val trainingSize = 4000
 		val N = List(100,200,400,800,2000,4000)
-		val data = getDataFromFile("ps1_data/spam_train.txt")
+		val data = getDataFromFile("data/spam_train.txt")
 		val emailList = Support.getEmailList(data)
 		val tmp = emailList.splitAt(trainingSize) /*splits training data set for validation set*/
 		val trainingDataSet = tmp._1
@@ -43,7 +43,7 @@ object Main {
 			newVocabIndex+=1
 		}
 		val finalFeatureVectors = Support.makeFeatureVector(emailList,newVocabList)
-		val testData = getDataFromFile("ps1_data/spam_test.txt")
+		val testData = getDataFromFile("data/spam_test.txt")
 		val testDataSet = Support.getEmailList(testData)
 		printPerceptronData(true,false,finalFeatureVectors,testDataSet,newVocabList,15)
 
