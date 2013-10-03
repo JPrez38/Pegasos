@@ -12,6 +12,7 @@ object Main {
 		val start = System.currentTimeMillis
 		var lambdas = List[Double]()
 		for (i <- -9 to 1) {lambdas::= (math.pow(2,i))}
+		lambdas = lambdas.reverse
 		lambdas.foreach(x => runPegasos(false,4000,x))
 		//runPegasos(false,4000,.1)
 		
