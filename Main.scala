@@ -5,15 +5,28 @@ import scala.collection.mutable.Map
 import scala.collection.mutable.HashMap
 
 object Main {
+	val trainingData = getDataFromFile("data/spam_train.txt")
+	val testData = getDataFromFile("data/spam_test.txt")
+
 	def main(args: Array[String]) {
 		val start = System.currentTimeMillis
-		val trainingSize = 4000
-		val N = List(100,200,400,800,2000,4000)
+		var lambdas = List[Double]()
+		for (i <- -9 to 1) {lambdas::= (math.pow(2,i))}
+		lambdas.foreach(x => runPegasos(false,4000,x))
+		//runPegasos(false,4000,.1)
+		
+		val end = System.currentTimeMillis
+
+		println("Total Running Time of all Tests: " + (end-start)/1000.0 + " seconds")
+	}
+
+	def runPegasos(useTestDate: Boolean,trainingSize:Int,lambda: Double) = {
+		val start = System.currentTimeMillis
 		val data = getDataFromFile("data/spam_train.txt")
-		val emailList = Support.getEmailList(data)
+		val emailList = Support.getEmailList(trainingData)
 		val tmp = emailList.splitAt(trainingSize) /*splits training data set for validation set*/
 		val trainingDataSet = tmp._1
-		val validationDataSet = tmp._2
+		val validationDataSet = if(useTestDate) Support.getEmailList(testData) else tmp._2
 		val vocabTally = Support.buildVocabulary(trainingDataSet)
 		var vocabList = new Array[String](vocabTally.size)
 		var vocabIndex = 0
@@ -22,20 +35,14 @@ object Main {
 			vocabIndex+=1
 		}
 		val trainingFeatureVectors = Support.makeFeatureVector(trainingDataSet,vocabList)
-		val weights = Pegasos.pegasos_svm_train(trainingFeatureVectors,.00001)
+		val weights = Pegasos.pegasos_svm_train(trainingFeatureVectors,lambda)
 		val validationTrainingVectors = Support.makeFeatureVector(validationDataSet,vocabList)
 		val testError = Pegasos.pegasos_svm_test(validationTrainingVectors,weights)
-		println(f"Test Error: $testError%1.3f")
-
-		//printPerceptronData(false,true,trainingFeatureVectors,validationDataSet,vocabList,1000)
+		println(f"Test Error: $testError%1.3f for lambda of $lambda")
 
 		val algTime = System.currentTimeMillis
 
-		println("\nTotal Learning Time " + (algTime-start)/1000.0 + " seconds")
-		
-		val end = System.currentTimeMillis
-
-		println("Total Running Time of all Tests: " + (end-start)/1000.0 + " seconds")
+		println("\nAlgorithm Run Time: " + (algTime-start)/1000.0 + " seconds")
 	}
 
 	def getDataFromFile(file: String) : String = {
