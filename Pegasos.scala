@@ -46,6 +46,7 @@ object Pegasos {
 		var del = new Array[Double](weights.size)
 		var t = 0
 		for (iter <- 1 to 20) {
+			var empiricalLoss = 0.0
 			for (email <- data) {
 				val x = email._1
 				val y = email._2
@@ -58,7 +59,14 @@ object Pegasos {
 				}
 				val tmp = (1/(math.sqrt(lambda)))/magnitude(del)
 				weights = scalarVectorMultiply(del,math.min(1,tmp))
+
+				empiricalLoss += math.max(0,(1-y*dot(x,weights)))
 			}
+
+			empiricalLoss = empiricalLoss / data.size
+			val regularizationTerm = (lambda * math.pow(magnitude(weights),2)) / 2
+			val svmObjective = regularizationTerm + empiricalLoss
+			println(f"SVM Objective at iteration $iter is: $svmObjective%1.3f")
 		}
 		return weights
 	}
