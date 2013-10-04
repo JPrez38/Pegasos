@@ -11,7 +11,8 @@ object Support {
 		var currentIndex = 0
 		def constructEmail(beginIndex: Int, endIndex: Int, input: String) : (Int,String) = {
 			val emailText = input.slice(beginIndex,endIndex)
-			return (emailText.head.asDigit,emailText.substring(1,emailText.length))
+			val classification = if (emailText.head.asDigit == 1) 1 else -1
+			return (classification,emailText.substring(1,emailText.length))
 		}
 		def setIndex(nextIndex: Int, defaultValue: Int) : Int = {
 			return (if (nextIndex > -1) nextIndex else defaultValue)
@@ -56,7 +57,7 @@ object Support {
 			var wordList = HashMap[String,Int]()
 			words.foreach(word => wordList += word -> 0) 
 			for (vocabWord <- vocabList) {
-				featureVector(vocabIndex) = if(wordList.getOrElse(vocabWord,None) != None) 1 else 0
+				featureVector(vocabIndex) = if(wordList.getOrElse(vocabWord,None) != None) 1 else -1
 				vocabIndex+=1
 			}
 			val vector = (featureVector,email._1)

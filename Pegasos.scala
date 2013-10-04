@@ -5,25 +5,27 @@ import scala.collection.mutable.Map
 import scala.collection.mutable.HashMap
 
 object Pegasos {
-	def dot[T <% Double](m1: Iterable[Int], m2: Iterable[Double]) : Int = {
-		require(m1.size == m2.size) 
-		if (((for ((x, y) <- m1 zip m2) yield x * y).sum) >= .5) return 1 else 0
-	}
-
-	def dotted[T <% Double](m1: Iterable[Int], m2: Iterable[Double]) : Double = {
+	def dot[T <% Double](m1: Iterable[T], m2: Iterable[Double]) : Double = {
 		require(m1.size == m2.size) 
 		return (for ((x, y) <- m1 zip m2) yield x * y).sum
 	}
 
 	def magnitude(x:Array[Double]) : Double = {
 		var magnitude = math.sqrt((for (x_i <- x) yield x_i*x_i).sum)
-		if (magnitude == 0.0) return 0.1 else magnitude
+		if (magnitude == 0.0) return .000001 else magnitude
 	}
 
 	def subtractVector(a:Array[Double],b:Array[Double]) : Array[Double] = {
 		var c = new Array[Double](a.size)
 		require(a.size == b.size)
 		for (i <- 0 to a.size-1){ c(i) = (a(i) - b(i)) }
+		return c
+	}
+
+	def addVector(a:Array[Double],b:Array[Double]) : Array[Double] = {
+		var c = new Array[Double](a.size)
+		require(a.size == b.size)
+		for (i <- 0 to a.size-1){ c(i) = (a(i) + b(i)) }
 		return c
 	}
 
@@ -49,12 +51,13 @@ object Pegasos {
 				val y = email._2
 				t += 1
 				val eta = 1/(t*lambda)
-				if ((y*dotted(x,weights) < 1)) {
-					del = subtractVector(scalarVectorMultiply(weights,(1-eta)),scalarVectorMultiply(x,(eta*y)))
+				if ((y*dot(x,weights) < 1)) {
+					del = addVector(scalarVectorMultiply(weights,(1-eta*lambda)),scalarVectorMultiply(x,(eta*y)))
 				} else {
-					del = scalarVectorMultiply(weights,(1-eta))
+					del = scalarVectorMultiply(weights,(1-eta*lambda))
 				}
-				weights = scalarVectorMultiply(del,math.min(1,(1/(math.sqrt(lambda)))/magnitude(del)))
+				val tmp = (1/(math.sqrt(lambda)))/magnitude(del)
+				weights = scalarVectorMultiply(del,math.min(1,tmp))
 			}
 		}
 		return weights
@@ -64,10 +67,9 @@ object Pegasos {
 		var errorCount=0
 		for( x <- data) {
 			val featureVector = x._1
-			val desiredOutput = x._2
+			var desiredOutput = x._2
 
-			val output = dot(featureVector,weights)
-			//println(output)
+			val output = if (dot(featureVector,weights) > 0) 1 else -1
 			val error = desiredOutput-output
 			if (error != 0) errorCount+=1
 		}

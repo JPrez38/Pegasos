@@ -25,6 +25,7 @@ object Main {
 		val start = System.currentTimeMillis
 		val data = getDataFromFile("data/spam_train.txt")
 		val emailList = Support.getEmailList(trainingData)
+		//emailList.foreach(x => println(x))
 		val tmp = emailList.splitAt(trainingSize) /*splits training data set for validation set*/
 		val trainingDataSet = tmp._1
 		val validationDataSet = if(useTestDate) Support.getEmailList(testData) else tmp._2
