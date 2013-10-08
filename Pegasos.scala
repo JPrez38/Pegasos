@@ -45,30 +45,50 @@ object Pegasos {
 		var weights = new Array[Double](data(0)._1.size)
 		var del = new Array[Double](weights.size)
 		var t = 0
+		var sumHingeLoss = 0.0
 		for (iter <- 1 to 20) {
 			var empiricalLoss = 0.0
+			var misclassified = 0.0
 			for (email <- data) {
 				val x = email._1
 				val y = email._2
 				t += 1
 				val eta = 1/(t*lambda)
 				if ((y*dot(x,weights) < 1)) {
-					del = addVector(scalarVectorMultiply(weights,(1-eta*lambda)),scalarVectorMultiply(x,(eta*y)))
+					del = addVector(scalarVectorMultiply(weights,(1-(eta*lambda))),scalarVectorMultiply(x,(eta*y)))
 				} else {
 					del = scalarVectorMultiply(weights,(1-eta*lambda))
 				}
 				val tmp = (1/(math.sqrt(lambda)))/magnitude(del)
 				weights = scalarVectorMultiply(del,math.min(1,tmp))
-
-				empiricalLoss += math.max(0,(1-y*dot(x,weights)))
 			}
-
-			empiricalLoss = empiricalLoss / data.size
+			for (email <- data) {
+				val x = email._1
+				val y = email._2
+				val out = if (dot(x,weights) > 0) 1 else -1
+				empiricalLoss = empiricalLoss + math.max(0,1-out*y)
+			}
+			empiricalLoss = empiricalLoss / data.size /* also the hinge loss */
+			sumHingeLoss += empiricalLoss
 			val regularizationTerm = (lambda * math.pow(magnitude(weights),2)) / 2
+			val trainingError = misclassified / data.size
 			val svmObjective = regularizationTerm + empiricalLoss
 			println(f"SVM Objective at iteration $iter is: $svmObjective%1.3f")
 		}
+		val avgHingeLoss = sumHingeLoss / 20
+		println(f"Average Hinge Loss for lambda $lambda is: $avgHingeLoss%1.4f")
+
 		return weights
+	}
+
+	def getSupportVectors(data: List[(Array[Int],Int)],weights: Array[Double]) = {
+		var supportVectors=0
+		for (email <- data) {
+			val dotted = math.abs(dot(email._1,weights)) 
+			if (dotted > .99 && dotted < 1.01) { supportVectors += 1} /*accounts for minor floating point rounding errors */	
+		}
+
+		println("Number of support vectors: " + supportVectors)
 	}
 
 	def pegasos_svm_test(data: List[(Array[Int],Int)],weights: Array[Double]) : Double = {

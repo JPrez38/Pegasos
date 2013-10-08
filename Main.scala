@@ -13,21 +13,20 @@ object Main {
 		var lambdas = List[Double]()
 		for (i <- -9 to 1) {lambdas::= (math.pow(2,i))}
 		lambdas = lambdas.reverse
-		lambdas.foreach(x => runPegasos(false,4000,x))
-		//runPegasos(false,4000,.1)
+		//lambdas.foreach(x => runPegasos(false,4000,x))
+		runPegasos(true,5000,math.pow(2,-5))
 		
 		val end = System.currentTimeMillis
 
 		println("Total Running Time of all Tests: " + (end-start)/1000.0 + " seconds")
 	}
 
-	def runPegasos(useTestDate: Boolean,trainingSize:Int,lambda: Double) = {
+	def runPegasos(useTestData: Boolean,trainingSize:Int,lambda: Double) = {
 		val start = System.currentTimeMillis
-		val data = getDataFromFile("data/spam_train.txt")
 		val emailList = Support.getEmailList(trainingData)
 		val tmp = emailList.splitAt(trainingSize) /*splits training data set for validation set*/
 		val trainingDataSet = tmp._1
-		val validationDataSet = if(useTestDate) Support.getEmailList(testData) else tmp._2
+		val validationDataSet = if(useTestData) Support.getEmailList(testData) else tmp._2
 		val vocabTally = Support.buildVocabulary(trainingDataSet)
 		var vocabList = new Array[String](vocabTally.size)
 		var vocabIndex = 0
@@ -37,6 +36,9 @@ object Main {
 		}
 		val trainingFeatureVectors = Support.makeFeatureVector(trainingDataSet,vocabList)
 		val weights = Pegasos.pegasos_svm_train(trainingFeatureVectors,lambda)
+		val trainingError = Pegasos.pegasos_svm_test(trainingFeatureVectors,weights)
+		Pegasos.getSupportVectors(trainingFeatureVectors,weights)
+		println(f"Average Training Error for lambda of $lambda is $trainingError%1.5f")
 		val validationTrainingVectors = Support.makeFeatureVector(validationDataSet,vocabList)
 		val testError = Pegasos.pegasos_svm_test(validationTrainingVectors,weights)
 		println(f"Test Error: $testError%1.3f for lambda of $lambda")

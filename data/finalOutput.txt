@@ -1,0 +1,287 @@
+SVM Objective at iteration 1 is: 1.127
+SVM Objective at iteration 2 is: 0.811
+SVM Objective at iteration 3 is: 0.594
+SVM Objective at iteration 4 is: 0.547
+SVM Objective at iteration 5 is: 0.537
+SVM Objective at iteration 6 is: 0.554
+SVM Objective at iteration 7 is: 0.464
+SVM Objective at iteration 8 is: 0.420
+SVM Objective at iteration 9 is: 0.369
+SVM Objective at iteration 10 is: 0.311
+SVM Objective at iteration 11 is: 0.282
+SVM Objective at iteration 12 is: 0.307
+SVM Objective at iteration 13 is: 0.293
+SVM Objective at iteration 14 is: 0.226
+SVM Objective at iteration 15 is: 0.252
+SVM Objective at iteration 16 is: 0.199
+SVM Objective at iteration 17 is: 0.180
+SVM Objective at iteration 18 is: 0.164
+SVM Objective at iteration 19 is: 0.149
+SVM Objective at iteration 20 is: 0.161
+Average Hinge Loss for lambda 0.001953125 is: 0.0755
+Number of support vectors: 0
+Average Training Error for lambda of 0.001953125 is 0.01375
+Validation Error: 0.032 for lambda of 0.001953125
+
+Algorithm Run Time: 33.889 seconds
+SVM Objective at iteration 1 is: 1.095
+SVM Objective at iteration 2 is: 0.620
+SVM Objective at iteration 3 is: 0.544
+SVM Objective at iteration 4 is: 0.491
+SVM Objective at iteration 5 is: 0.411
+SVM Objective at iteration 6 is: 0.393
+SVM Objective at iteration 7 is: 0.335
+SVM Objective at iteration 8 is: 0.318
+SVM Objective at iteration 9 is: 0.235
+SVM Objective at iteration 10 is: 0.214
+SVM Objective at iteration 11 is: 0.184
+SVM Objective at iteration 12 is: 0.191
+SVM Objective at iteration 13 is: 0.157
+SVM Objective at iteration 14 is: 0.136
+SVM Objective at iteration 15 is: 0.124
+SVM Objective at iteration 16 is: 0.111
+SVM Objective at iteration 17 is: 0.103
+SVM Objective at iteration 18 is: 0.094
+SVM Objective at iteration 19 is: 0.121
+SVM Objective at iteration 20 is: 0.083
+Average Hinge Loss for lambda 0.00390625 is: 0.0600
+Number of support vectors: 0
+Average Training Error for lambda of 0.00390625 is 0.00175
+Validation Error: 0.018 for lambda of 0.00390625
+
+Algorithm Run Time: 33.875 seconds
+SVM Objective at iteration 1 is: 0.566
+SVM Objective at iteration 2 is: 0.689
+SVM Objective at iteration 3 is: 0.465
+SVM Objective at iteration 4 is: 0.364
+SVM Objective at iteration 5 is: 0.276
+SVM Objective at iteration 6 is: 0.224
+SVM Objective at iteration 7 is: 0.210
+SVM Objective at iteration 8 is: 0.160
+SVM Objective at iteration 9 is: 0.144
+SVM Objective at iteration 10 is: 0.167
+SVM Objective at iteration 11 is: 0.134
+SVM Objective at iteration 12 is: 0.104
+SVM Objective at iteration 13 is: 0.092
+SVM Objective at iteration 14 is: 0.085
+SVM Objective at iteration 15 is: 0.079
+SVM Objective at iteration 16 is: 0.074
+SVM Objective at iteration 17 is: 0.077
+SVM Objective at iteration 18 is: 0.068
+SVM Objective at iteration 19 is: 0.061
+SVM Objective at iteration 20 is: 0.062
+Average Hinge Loss for lambda 0.0078125 is: 0.0303
+Number of support vectors: 3
+Average Training Error for lambda of 0.0078125 is 0.00375
+Validation Error: 0.022 for lambda of 0.0078125
+
+Algorithm Run Time: 33.874 seconds
+SVM Objective at iteration 1 is: 0.732
+SVM Objective at iteration 2 is: 0.387
+SVM Objective at iteration 3 is: 0.297
+SVM Objective at iteration 4 is: 0.207
+SVM Objective at iteration 5 is: 0.179
+SVM Objective at iteration 6 is: 0.149
+SVM Objective at iteration 7 is: 0.124
+SVM Objective at iteration 8 is: 0.106
+SVM Objective at iteration 9 is: 0.091
+SVM Objective at iteration 10 is: 0.095
+SVM Objective at iteration 11 is: 0.114
+SVM Objective at iteration 12 is: 0.089
+SVM Objective at iteration 13 is: 0.090
+SVM Objective at iteration 14 is: 0.069
+SVM Objective at iteration 15 is: 0.077
+SVM Objective at iteration 16 is: 0.061
+SVM Objective at iteration 17 is: 0.067
+SVM Objective at iteration 18 is: 0.064
+SVM Objective at iteration 19 is: 0.055
+SVM Objective at iteration 20 is: 0.050
+Average Hinge Loss for lambda 0.015625 is: 0.0314
+Number of support vectors: 1
+Average Training Error for lambda of 0.015625 is 0.00300
+Validation Error: 0.021 for lambda of 0.015625
+
+Algorithm Run Time: 33.739 seconds
+SVM Objective at iteration 1 is: 0.619
+SVM Objective at iteration 2 is: 0.326
+SVM Objective at iteration 3 is: 0.213
+SVM Objective at iteration 4 is: 0.163
+SVM Objective at iteration 5 is: 0.153
+SVM Objective at iteration 6 is: 0.114
+SVM Objective at iteration 7 is: 0.113
+SVM Objective at iteration 8 is: 0.115
+SVM Objective at iteration 9 is: 0.078
+SVM Objective at iteration 10 is: 0.073
+SVM Objective at iteration 11 is: 0.072
+SVM Objective at iteration 12 is: 0.086
+SVM Objective at iteration 13 is: 0.068
+SVM Objective at iteration 14 is: 0.066
+SVM Objective at iteration 15 is: 0.079
+SVM Objective at iteration 16 is: 0.059
+SVM Objective at iteration 17 is: 0.053
+SVM Objective at iteration 18 is: 0.064
+SVM Objective at iteration 19 is: 0.055
+SVM Objective at iteration 20 is: 0.049
+Average Hinge Loss for lambda 0.03125 is: 0.0332
+Number of support vectors: 4
+Average Training Error for lambda of 0.03125 is 0.00350
+Validation Error: 0.019 for lambda of 0.03125
+
+Algorithm Run Time: 33.815 seconds
+SVM Objective at iteration 1 is: 0.365
+SVM Objective at iteration 2 is: 0.378
+SVM Objective at iteration 3 is: 0.150
+SVM Objective at iteration 4 is: 0.149
+SVM Objective at iteration 5 is: 0.116
+SVM Objective at iteration 6 is: 0.097
+SVM Objective at iteration 7 is: 0.084
+SVM Objective at iteration 8 is: 0.098
+SVM Objective at iteration 9 is: 0.077
+SVM Objective at iteration 10 is: 0.076
+SVM Objective at iteration 11 is: 0.072
+SVM Objective at iteration 12 is: 0.089
+SVM Objective at iteration 13 is: 0.068
+SVM Objective at iteration 14 is: 0.078
+SVM Objective at iteration 15 is: 0.064
+SVM Objective at iteration 16 is: 0.062
+SVM Objective at iteration 17 is: 0.069
+SVM Objective at iteration 18 is: 0.061
+SVM Objective at iteration 19 is: 0.061
+SVM Objective at iteration 20 is: 0.068
+Average Hinge Loss for lambda 0.0625 is: 0.0342
+Number of support vectors: 14
+Average Training Error for lambda of 0.0625 is 0.01075
+Validation Error: 0.020 for lambda of 0.0625
+
+Algorithm Run Time: 34.283 seconds
+SVM Objective at iteration 1 is: 0.263
+SVM Objective at iteration 2 is: 0.168
+SVM Objective at iteration 3 is: 0.126
+SVM Objective at iteration 4 is: 0.119
+SVM Objective at iteration 5 is: 0.133
+SVM Objective at iteration 6 is: 0.106
+SVM Objective at iteration 7 is: 0.110
+SVM Objective at iteration 8 is: 0.103
+SVM Objective at iteration 9 is: 0.094
+SVM Objective at iteration 10 is: 0.094
+SVM Objective at iteration 11 is: 0.101
+SVM Objective at iteration 12 is: 0.085
+SVM Objective at iteration 13 is: 0.086
+SVM Objective at iteration 14 is: 0.088
+SVM Objective at iteration 15 is: 0.085
+SVM Objective at iteration 16 is: 0.082
+SVM Objective at iteration 17 is: 0.084
+SVM Objective at iteration 18 is: 0.086
+SVM Objective at iteration 19 is: 0.092
+SVM Objective at iteration 20 is: 0.090
+Average Hinge Loss for lambda 0.125 is: 0.0356
+Number of support vectors: 21
+Average Training Error for lambda of 0.125 is 0.01775
+Validation Error: 0.026 for lambda of 0.125
+
+Algorithm Run Time: 34.355 seconds
+SVM Objective at iteration 1 is: 0.223
+SVM Objective at iteration 2 is: 0.158
+SVM Objective at iteration 3 is: 0.150
+SVM Objective at iteration 4 is: 0.131
+SVM Objective at iteration 5 is: 0.120
+SVM Objective at iteration 6 is: 0.137
+SVM Objective at iteration 7 is: 0.131
+SVM Objective at iteration 8 is: 0.123
+SVM Objective at iteration 9 is: 0.124
+SVM Objective at iteration 10 is: 0.120
+SVM Objective at iteration 11 is: 0.116
+SVM Objective at iteration 12 is: 0.119
+SVM Objective at iteration 13 is: 0.120
+SVM Objective at iteration 14 is: 0.120
+SVM Objective at iteration 15 is: 0.116
+SVM Objective at iteration 16 is: 0.116
+SVM Objective at iteration 17 is: 0.115
+SVM Objective at iteration 18 is: 0.113
+SVM Objective at iteration 19 is: 0.112
+SVM Objective at iteration 20 is: 0.114
+Average Hinge Loss for lambda 0.25 is: 0.0490
+Number of support vectors: 31
+Average Training Error for lambda of 0.25 is 0.02300
+Validation Error: 0.028 for lambda of 0.25
+
+Algorithm Run Time: 35.979 seconds
+SVM Objective at iteration 1 is: 0.243
+SVM Objective at iteration 2 is: 0.173
+SVM Objective at iteration 3 is: 0.157
+SVM Objective at iteration 4 is: 0.155
+SVM Objective at iteration 5 is: 0.148
+SVM Objective at iteration 6 is: 0.140
+SVM Objective at iteration 7 is: 0.144
+SVM Objective at iteration 8 is: 0.142
+SVM Objective at iteration 9 is: 0.142
+SVM Objective at iteration 10 is: 0.137
+SVM Objective at iteration 11 is: 0.140
+SVM Objective at iteration 12 is: 0.136
+SVM Objective at iteration 13 is: 0.136
+SVM Objective at iteration 14 is: 0.138
+SVM Objective at iteration 15 is: 0.138
+SVM Objective at iteration 16 is: 0.138
+SVM Objective at iteration 17 is: 0.136
+SVM Objective at iteration 18 is: 0.137
+SVM Objective at iteration 19 is: 0.136
+SVM Objective at iteration 20 is: 0.136
+Average Hinge Loss for lambda 0.5 is: 0.0524
+Number of support vectors: 75
+Average Training Error for lambda of 0.5 is 0.02375
+Validation Error: 0.026 for lambda of 0.5
+
+Algorithm Run Time: 35.044 seconds
+SVM Objective at iteration 1 is: 0.235
+SVM Objective at iteration 2 is: 0.228
+SVM Objective at iteration 3 is: 0.205
+SVM Objective at iteration 4 is: 0.185
+SVM Objective at iteration 5 is: 0.180
+SVM Objective at iteration 6 is: 0.182
+SVM Objective at iteration 7 is: 0.179
+SVM Objective at iteration 8 is: 0.179
+SVM Objective at iteration 9 is: 0.177
+SVM Objective at iteration 10 is: 0.178
+SVM Objective at iteration 11 is: 0.176
+SVM Objective at iteration 12 is: 0.177
+SVM Objective at iteration 13 is: 0.180
+SVM Objective at iteration 14 is: 0.177
+SVM Objective at iteration 15 is: 0.176
+SVM Objective at iteration 16 is: 0.179
+SVM Objective at iteration 17 is: 0.179
+SVM Objective at iteration 18 is: 0.178
+SVM Objective at iteration 19 is: 0.178
+SVM Objective at iteration 20 is: 0.176
+Average Hinge Loss for lambda 1.0 is: 0.0689
+Number of support vectors: 90
+Average Training Error for lambda of 1.0 is 0.03200
+Validation Error: 0.031 for lambda of 1.0
+
+Algorithm Run Time: 35.283 seconds
+SVM Objective at iteration 1 is: 0.291
+SVM Objective at iteration 2 is: 0.258
+SVM Objective at iteration 3 is: 0.237
+SVM Objective at iteration 4 is: 0.245
+SVM Objective at iteration 5 is: 0.245
+SVM Objective at iteration 6 is: 0.248
+SVM Objective at iteration 7 is: 0.248
+SVM Objective at iteration 8 is: 0.251
+SVM Objective at iteration 9 is: 0.249
+SVM Objective at iteration 10 is: 0.247
+SVM Objective at iteration 11 is: 0.243
+SVM Objective at iteration 12 is: 0.249
+SVM Objective at iteration 13 is: 0.247
+SVM Objective at iteration 14 is: 0.247
+SVM Objective at iteration 15 is: 0.249
+SVM Objective at iteration 16 is: 0.249
+SVM Objective at iteration 17 is: 0.248
+SVM Objective at iteration 18 is: 0.249
+SVM Objective at iteration 19 is: 0.248
+SVM Objective at iteration 20 is: 0.248
+Average Hinge Loss for lambda 2.0 is: 0.1151
+Number of support vectors: 147
+Average Training Error for lambda of 2.0 is 0.05775
+Validation Error: 0.059 for lambda of 2.0
+
+Algorithm Run Time: 36.066 seconds
+Total Running Time of all Tests: 380.206 seconds
